@@ -1,0 +1,31 @@
+<launch>
+    <!-- Launch the grid map publisher node -->
+    <node 
+        pkg="simple_planner" 
+        exec="grid_map_publisher" 
+        name="grid_map_publisher" 
+        output="screen" />
+
+    <!-- Launch the simple planner node -->
+    <node 
+        pkg="simple_planner" 
+        exec="simple_planner_node" 
+        name="simple_planner_node" 
+        output="screen" />
+
+    <!-- Launch the robot controller node -->
+    <node 
+        pkg="simple_planner" 
+        exec="robot_controller_node" 
+        name="robot_controller_node" 
+        output="screen" />
+
+    <!-- Launch RViz with a specific configuration file -->
+    <node 
+        pkg="rviz2" 
+        exec="rviz2" 
+        name="rviz2" 
+        output="screen">
+        <param name="args" value="/home/baba/ros2_humble_ws/src/simple_planner/rviz/start.rviz" />
+    </node>
+</launch>
