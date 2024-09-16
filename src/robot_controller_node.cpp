@@ -92,8 +92,8 @@ private:
         // Create a twist message to send velocity commands to the robot
         geometry_msgs::msg::Twist cmd_vel;
         if (distance_to_goal > 0.1) { // Move towards the target waypoint
-            cmd_vel.linear.x = std::min(0.5, distance_to_goal); // Adjust speed based on distance
-            cmd_vel.angular.z = 2.0 * (angle_to_goal - current_yaw_); // Proportional controller for orientation
+            cmd_vel.linear.x = std::min(0.1, distance_to_goal); // Adjust speed based on distance
+            cmd_vel.angular.z = 1.0 * (angle_to_goal - current_yaw_); // Proportional controller for orientation
             RCLCPP_INFO(this->get_logger(), "Moving towards waypoint: x=%.2f, y=%.2f", target_x, target_y);
         }
         else {
